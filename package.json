@@ -1,0 +1,12 @@
+{
+  "name": "plvmediacenter",
+  "version": "1.0.0",
+  "description": "TV movies 7 days back",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Palamir",
+  "license": "ISC",
+  "dependencies": {}
+}

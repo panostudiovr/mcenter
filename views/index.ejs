@@ -1,0 +1,69 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head>
+    <title>PLV Media Center</title>
+    <link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet"> 
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet" type="text/css"> 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery.lazy/1.7.6/jquery.lazy.min.js"></script>
+    
+    <script>
+        $(function() {
+            $('.lazy').lazy({
+                effect: "fadeIn",
+                effectTime: 1000,
+                threshold: 0
+            }); 
+        });
+    </script>
+</head> 
+
+<body>
+
+<!-- <nav class="nav"> -->
+    <!-- <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>  
+    </button> -->
+    <div class="channel">
+        <ul class="nav nav-tabs">
+            <li class="nav-item"><a class="nav-link active" href="http://plvpi:3000">Всички канали</a></li>
+            <li class="nav-item"><a class="nav-link" href="http://plvpi:3000/channel=KinoNova">KinoNova</a></li>
+            <li class="nav-item"><a class="nav-link" href="http://plvpi:3000/channel=bTV">bTV</a></li>
+            <li class="nav-item"><a class="nav-link" href="http://plvpi:3000/channel=BNT1">BNT1</a></li>
+            <li class="nav-item"><a class="nav-link" href="http://plvpi:3000/channel=BNT2">BNT2</a></li>
+            <li class="nav-item"><a class="nav-link" href="http://plvpi:3000/channel=bTVAction">bTVAction</a></li>
+            <li class="nav-item"><a class="nav-link" href="http://plvpi:3000/channel=bTVComedy">bTVComedy</a></li>
+            <li class="nav-item"><a class="nav-link" href="http://plvpi:3000/channel=bTVCinema">bTVCinema</a></li>
+            <li class="nav-item"><a class="nav-link" href="http://plvpi:3000/channel=Nova">Nova</a></li>
+            <li class="nav-item"><a class="nav-link" href="http://plvpi:3000/channel=TV1000">TV1000</a></li>
+            <li class="nav-item"><a class="nav-link" href="http://plvpi:3000/channel=VivacomArena">VivacomArena</a></li>
+            <li class="nav-item"><a class="nav-link" href="http://plvpi:3000/channel=Diema">Diema</a></li>
+            <li class="nav-item"><a class="nav-link" href="http://plvpi:3000/channel=FOX">FOX</a></li>
+            <li class="nav-item"><a class="nav-link" href="http://plvpi:3000/channel=FilmBoxPlusHD">FilmBoxPlusHD</a></li>
+        </ul>      
+    </div>
+<!-- </nav> -->
+
+<div class="container-fluid">
+    <div class="row">
+        <% for (i=0; i<testmovies.length; i++){%>
+            <div class="cardholder col-lg-4 col-md-12 col-sm-12">
+                <div class="movie">
+                    <div class="icon">
+                    <a href="<%= testmovies[i].imdbUrl %>"> <img class="lazy" data-src="<%= testmovies[i].icon %>" src="" title=" <%= testmovies[i].shortName %>" /></a>
+                    </div>
+                    
+                    <p>
+                        <span class="movieName"><%= testmovies[i].shortName %></span><br>
+                        <span class="movieDesc"> <%= testmovies[i].movieName.substr(testmovies[i].shortName.length+3, 110) %></span><br><br>
+                        <span class="channel"><a href="http://plvpi:3000/channel=<%= testmovies[i].channel %>"><%= testmovies[i].channel %></a></span><br><br>
+                        <span class="movieStart"><%= testmovies[i].movieStart.substr(0, 4) + '-' + testmovies[i].movieStart.substr(4, 2) + '-' + testmovies[i].movieStart.substr(6, 2) + ' ' + testmovies[i].movieStart.substr(8, 2) + ':' + testmovies[i].movieStart.substr(10, 2) %></span>
+                    </p>
+                </div>
+            </div>    
+        <% } %> 
+    </div>
+</div>
+</body>
+</html>
