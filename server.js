@@ -1,4 +1,4 @@
-//Download EPG file using URL get with redirect
+//Download EPG file using URL get with redirect blah
 
     var http = require('follow-redirects').http;
     var download = require('download-file');
